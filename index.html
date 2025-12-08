@@ -1,33 +1,384 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>简单的首页</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            background: #f7f7f7;
-        }
-        .box {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            max-width: 600px;
-            margin: auto;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-        }
-        h1 {
-            margin-top: 0;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Spatial Forcing: Implicit Spatial Representation Alignment for Vision-language-action Model">
+  <meta name="keywords" content="spatial forcing, spatial-forcing, spatial_forcing, SF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <title>Spatial Forcing</title>
+
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><text x="50%" y="50%" font-size="200" dominant-baseline="middle" text-anchor="middle">🤖</text></svg>'> -->
+  <link rel="icon" type="image/png" href="./static/images/SF-icon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
 </head>
 <body>
-    <div class="box">
-        <h1>欢迎！</h1>
-        <p>这是一个非常简单的 index.html 模板。</p>
-        <p>你可以在这里开始构建你的网页。</p>
+
+
+
+<section class="hero">
+  <div class="hero-body " style="background-color: hsl(0, 3%, 87%);">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Spatial Forcing: Implicit Spatial Representation
+             Alignment For Vision-Language-Action Model</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://haofuly.github.io/">Fuhao Li</a><sup>1,2,*</sup>,</span>
+            <span class="author-block">
+              <a href="https://songwxuan.github.io/">Wenxuan Song</a><sup>1,*,‡</sup>,</span>
+            <span class="author-block">
+              <a href="https://h-zhao1997.github.io/">Han Zhao</a><sup>3,4</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://github.com/hhhJB">Jingbo Wang</a><sup>5</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://dingpx.github.io/">Pengxiang Ding</a><sup>3,4</sup>,
+            </span>
+            <br>
+            <span class="author-block">
+              <a href="https://milab.westlake.edu.cn/">Donglin Wang</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://jackyzengl.github.io/">Long Zeng</a><sup>2,✉</sup>
+            </span>
+            <span class="author-block">
+              <a href="https://sites.google.com/view/haoangli/homepage">Haoang Li</a><sup>1,✉</sup>
+            </span>
+          </div>
+            
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>The Hong Kong University of Science and Technology (Guangzhou)</span>&nbsp;&nbsp;
+            <span class="author-block"><sup>2</sup>Tsinghua University</span>
+            <span class="author-block"><sup>3</sup>Westlake University</span>&nbsp;&nbsp;
+            <span class="author-block"><sup>4</sup>Zhejiang University</span>&nbsp;&nbsp;
+            <span class="author-block"><sup>5</sup>South China University of Technology</span>
+            <br>
+            <span class="author-block"><sup>*</sup>Equal Contribution</span>&nbsp;&nbsp;
+            <span class="author-block"><sup>‡</sup>Project Lead</span>&nbsp;&nbsp;
+            <span class="author-block"><sup>✉</sup>Corresponding Author</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+               <span class="link-block">
+                <a href="https://arxiv.org/abs/2510.12276"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span> 
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2510.12276"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link.
+              <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/OpenHelix-Team/Spatial-Forcing"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <span class="link-block">
+                <a href="https://huggingface.co/collections/haofuly/spatial-forcing-68ea1bf0f1ac2c60e2ec6caa"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    🤗
+                  </span>
+                  <span>Models</span>
+                </a>
+              </span>              
+            </div>
+
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
+
+<section class="section ">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Key Features</h2>
+
+        <div class="columns is-multiline is-centered">
+          <div class="column is-one-quarter">
+            <figure class="image">
+              <img src="./static/images/sota_sim.png" alt="Feature 1" style="max-height:150px; width:auto;">
+              <figcaption class="has-text-centered is-size-6">Simulation<br>Performance</figcaption>
+            </figure>
+          </div>
+          <div class="column is-one-quarter">
+            <figure class="image">
+              <img src="./static/images/sota_real.png" alt="Feature 1" style="max-height:150px; width:auto;">
+              <figcaption class="has-text-centered is-size-6">Real-world<br>Performance</figcaption>
+            </figure>
+          </div>
+          <div class="column is-one-quarter">
+            <figure class="image">
+              <img src="./static/images/training.png" alt="Feature 1" style="max-height:150px; width:auto;">
+              <figcaption class="has-text-centered is-size-6">Training<br>Efficiency</figcaption>
+            </figure>
+          </div>
+          <div class="column is-one-quarter">
+            <figure class="image">
+              <img src="./static/images/data.png" alt="Feature 1" style="max-height:150px; width:auto;">
+              <figcaption class="has-text-centered is-size-6">Data<br>Efficiency</figcaption>
+            </figure>
+          </div>
+        </div>
+
+    <div class="content has-text-justified">
+      <p>
+        1. <strong>Universality:</strong> SF is a <b>plug-and-play</b> 3D finetune strategy that can be seamlessly integrated with any VLA training process, requiring only minimal code modifications with 30 lines. It substantially enhances spatial reasoning and manipulation capabilities. We provide implementations based on OpenVLA and Pi0, along with a quick-start guide for adapting SF to other VLA models.
+      </p>
+      <p>
+        2. <strong>Strong Performance:</strong> SF achieves state-of-the-art (SOTA) results on both LIBERO and RoboTwin benchmarks. In real-world experiments involving complex spatial structures, SF improves task success rates by up to 50%.
+      </p>
+      <p>
+        3. <strong>Efficient Training:</strong> SF requires only 3% of the training steps or 5% of the training data to reach a 66% success rate on LIBERO-Long. Moreover, it achieves strong real-world performance with as few as 20 demonstrations.
+      </p>
+    </div>
+      </div>
+    </div>
+
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Vision-language-action (VLA) models have recently shown strong potential in enabling robots to follow language instructions and execute precise actions. However, most VLAs are built upon vision-language models pretrained solely on 2D data, which lack accurate spatial awareness and hinder their ability to operate in the 3D physical world. Existing solutions attempt to incorporate explicit 3D sensor inputs such as depth maps or point clouds, but these approaches face challenges due to sensor noise, hardware heterogeneity, and incomplete depth coverage in existing datasets. Alternative methods that estimate 3D cues from 2D images also suffer from the limited performance of depth estimators.
+We propose <strong>Spatial Forcing (SF)</strong>, a simple yet effective alignment strategy that implicitly forces VLA models to develop spatial comprehension capabilities without relying on explicit 3D inputs or depth estimators. SF aligns intermediate visual embeddings of VLAs with geometric representations produced by pretrained 3D foundation models. By enforcing alignment at intermediate layers, SF guides VLAs to encode richer spatial representations that enhance action precision.
+Extensive experiments in simulation and real-world environments demonstrate that SF achieves state-of-the-art results, surpassing both 2D- and 3D-based VLAs. SF further accelerates training by up to 3.8x and improves data efficiency across diverse robotic tasks.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+
+<div class="columns is-centered has-text-centered">
+  
+  <!-- column 容器是必须的，它控制内容的宽度和对齐 -->
+  <div class="column is-four-fifths">
+
+    <!-- 标题 -->
+    <h2 class="title is-3">Method</h2>
+
+    <!-- 包含所有段落的 content 容器 -->
+    <div class="content has-text-justified">
+      <figure class="image is-is-16by9">
+        <img src="./static/images/model.png" alt="Models." style="width:70%; height:auto;">
+      </figure>
+
+      <p>
+        Our core philosophy is to enhance the model's spatial awareness using an external guide. To provide our model with a rich understanding of 3D space, we leverage a powerful, pre-trained 3D foundation model VGGT. For any given set of multi-view images, this foundation model generates detailed, pixel-level spatial representations—effectively creating a 3D-aware feature map from 2D inputs. These representations are further enriched with positional embeddings to maintain critical structural information.
+      </p>
+      
+      <p>
+        The key to our method is aligning the VLA's own visual tokens with these high-quality 3D signals. To achieve this, we first process the VLA's internal visual features through a normalization layer and a small neural network (MLP) to ensure their format is compatible with the 3D representations. We then train the model to maximize the cosine similarity between its own processed visual tokens and the corresponding 3D spatial signals from the foundation model. This alignment process effectively forces the VLA to learn and internalize a much deeper understanding of 3D geometry, directly from 2D images.
+      </p>
+    </div>
+
+  </div> <!-- 这是 is-four-fifths column 的结束标签 -->
+
+</div> 
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Experiments</h2>
+    <br> 
+
+<h3 class="title is-4">Evaluation on LIBERO Benchmark</h3>
+<div class="content has-text-justified">
+  <figure class="image is-is-16by9">
+      <img src="./static/images/LIBERO.png" alt="Comparisons with state-of-the-art methods on LIBERO benchmark.">
+      <figcaption class="has-text-centered is-size-6" style="margin-top: 0.5em;">
+        Comparisons with state-of-the-art methods on the LIBERO benchmark.
+      </figcaption>
+    </figure>
+  <p>
+   Spatial Forcing gets the best performance across all four tasks. Specifically, strictly following the same setup of OpenVLA-OFT to use both primary and wrist camera images, our method outperforms them quite a lot.
+  </p>
+</div>
+
+<h3 class="title is-4">Evaluation on RoboTwin 2.0 Benchmark</h3>
+<div class="content has-text-justified">
+  <figure class="image is-is-21by9">
+      <img src="./static/images/robotwin.png" alt="Comparisons with state-of-the-art methods on RoboTwin 2.0 benchmark.">
+      <figcaption class="has-text-centered is-size-6" style="margin-top: 0.5em;">
+        Comparisons with state-of-the-art methods on RoboTwin 2.0 benchmark.
+      </figcaption>
+    </figure>
+  <p>
+    Spatial Forcing achieves the highest average success rate and yields substantial improvements over the base model &pi;0 across all tasks, which demonstrates its effectiveness in enhancing the spatial awareness.
+  </p>
+</div>
+
+<h3 class="title is-4">Evaluation on Real World</h3>
+<div class="content has-text-justified">
+  <figure class="image is-is-16by9">
+      <img src="./static/images/Real.png" alt="Real-world Experiments.">
+      <figcaption class="has-text-centered is-size-6" style="margin-top: 0.5em;">
+        Real-world Experiments with various visual and spatial conditions. The videos below are played at the original speed of robot actions.
+      </figcaption>
+    </figure>
+</div>
+
+<!-- demo videos -->
+<div class="content has-text-justified" style="
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0em;
+  flex-wrap: wrap;
+">
+  <figure class="image" style="flex: 1; text-align: center; margin: 0;">
+    <video class="video" controls autoplay muted loop playsinline
+      style="width:80%; height:auto; vertical-align: top; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
+      <source src="./static/videos/grasp_vegetable.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <figcaption class="has-text-centered is-size-6" style="margin-top: 0.5em;">
+      Grasp Right-side vegetable.
+    </figcaption>
+  </figure>
+  <figure class="image" style="flex: 1; text-align: center; margin: 0;">
+    <video class="video" controls autoplay muted loop playsinline
+      style="width:80%; height:auto; vertical-align: top; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
+      <source src="./static/videos/lift_pot.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <figcaption class="has-text-centered is-size-6" style="margin-top: 0.5em;">
+      Lift Pot.
+    </figcaption>
+  </figure>
+</div>
+
+<div class="content has-text-justified" style="
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1em;
+  flex-wrap: wrap;
+">
+  <figure class="image" style="flex: 1; text-align: center; margin: 0;">
+    <video class="video" controls autoplay muted loop playsinline
+      style="width:80%; height:auto; vertical-align: top; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
+      <source src="./static/videos/grasp_cup.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <figcaption class="has-text-centered is-size-6" style="margin-top: 0.5em;">
+      Stack Transparent Glass Cups.
+    </figcaption>
+  </figure>
+  <figure class="image" style="flex: 1; text-align: center; margin: 0;">
+    <video class="video" controls autoplay muted loop playsinline
+      style="width:80%; height:auto; vertical-align: top; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
+      <source src="./static/videos/stack_floor.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <figcaption class="has-text-centered is-size-6" style="margin-top: 0.5em;">
+      Place Green Block.
+    </figcaption>
+  </figure>
+</div>
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{spatialforcing2025,
+  author    = {Li Fuhao, Song Wenxuan, Zhao Han, Wang Jingbo, Ding Pengxiang, Wang Donglin, Zeng Long, Li Haoang},
+  title     = {Spatial Forcing: Implicit Spatial Representation Alignment For Vision-Language-Action Model},
+  journal   = {arXiv preprint arXiv:2510.12276},
+  year      = {2025},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
