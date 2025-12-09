@@ -163,6 +163,7 @@
   </div>
 </section>
 
+
 <section class="section ">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
@@ -179,42 +180,140 @@ Building on this idea, we propose <strong>HiF-VLA</strong> (<strong>Hindsight, I
     </div>
     <!--/ Abstract. -->
 
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Introduction</h2>
-
-        <div class="columns is-multiline is-centered">
-          <figure class="image is-is-16by9">
-            <img src="./static/images/motivation.png" alt="Models." style="width:100%; height:auto;">
-          </figure>
     
-          <p>
-            Our core philosophy is to enhance the model's spatial awareness using an external guide. To provide our model with a rich understanding of 3D space, we leverage a powerful, pre-trained 3D foundation model VGGT. For any given set of multi-view images, this foundation model generates detailed, pixel-level spatial representations—effectively creating a 3D-aware feature map from 2D inputs. These representations are further enriched with positional embeddings to maintain critical structural information.
-          </p>
-        </div>
-
-    <div class="content has-text-justified">
-      <p>
-        1. <strong>Universality:</strong> SF is a <b>plug-and-play</b> 3D finetune strategy that can be seamlessly integrated with any VLA training process, requiring only minimal code modifications with 30 lines. It substantially enhances spatial reasoning and manipulation capabilities. We provide implementations based on OpenVLA and Pi0, along with a quick-start guide for adapting SF to other VLA models.
-      </p>
-      <p>
-        2. <strong>Strong Performance:</strong> SF achieves state-of-the-art (SOTA) results on both LIBERO and RoboTwin benchmarks. In real-world experiments involving complex spatial structures, SF improves task success rates by up to 50%.
-      </p>
-      <p>
-        3. <strong>Efficient Training:</strong> SF requires only 3% of the training steps or 5% of the training data to reach a 66% success rate on LIBERO-Long. Moreover, it achieves strong real-world performance with as few as 20 demonstrations.
-      </p>
-    </div>
-      </div>
-    </div>
-
     
-
-
-<div class="columns is-centered has-text-centered">
+  <section class="section-container">
   
+    <h2 class="section-title">Motivation & Approach</h2>
+    <div class="columns is-multiline is-centered">
+
+      <figure class="image is-is-16by9">
+        <img src="./static/images/motivation.png" alt="Models." style="width:100%; height:auto;">
+      </figure>
+
+      <!-- <p>
+        Our core philosophy is to enhance the model's spatial awareness using an external guide. To provide our model with a rich understanding of 3D space, we leverage a powerful, pre-trained 3D foundation model VGGT. For any given set of multi-view images, this foundation model generates detailed, pixel-level spatial representations—effectively creating a 3D-aware feature map from 2D inputs. These representations are further enriched with positional embeddings to maintain critical structural information.
+      </p> -->
+    </div>
+    <div class="content-block">
+      <h3 class="subsection-title">⚠️ The Challenge: Temporal Myopia</h3>
+      <p>
+        Most existing VLAs implicitly assume a Markov property, predicting actions solely from current observations. This leads to <strong>temporal myopia</strong>. Common solutions like <span class="highlight">frame stacking</span> are computationally expensive and introduce massive pixel-level redundancy, obscuring key dynamics.
+      </p>
+    </div>
+  
+    <div class="content-block insight-block">
+      <h3 class="subsection-title">💡 Our Insight</h3>
+      <p class="insight-text">
+        We argue that <strong>motion</strong>—rather than raw pixels—is the most precise and compact proxy for history. It captures critical dynamic interactions while explicitly filtering out static visual redundancy.
+      </p>
+      <p class="insight-text">
+        Furthermore, robust decision-making demands <strong>bidirectional temporal reasoning</strong>. Motion acts as the natural bridge unifying the past (Hindsight) and the future (Foresight).
+      </p>
+    </div>
+  
+    <div class="content-block">
+      <h3 class="subsection-title">🚀 The Solution and Perfomance</h3>
+    <li>
+      To bridge this gap, we introduce <strong>HiF-VLA</strong>, a unified framework utilizing motion-centric bidirectional spatio-temporal reasoning. By concurrently predicting motion and action while maintaining temporal consistency, 
+      it enables a robust <strong><em>"Think-While-Acting"</em></strong> paradigm.
+      </li>
+     <li>
+      HiF-VLA demonstrates superior efficiency and scalability. It reduces inference latency by 58.3% compared to frame-stacking methods while achieving state-of-the-art performance on LIBERO-Long (96.4%), Calvin, and complex real-world manipulation tasks.
+      </li>
+    </div>
+  </section>
+  
+  <style>
+    /* 基础容器设置，确保文字不会太宽，便于阅读 */
+    .section-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+      font-family: "Noto Sans", "Inter", sans-serif; /* 学术常用字体 */
+      color: #333;
+      line-height: 1.6;
+    }
+  
+    /* 标题样式 */
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 2.5rem;
+      color: #111;
+    }
+  
+    .subsection-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      color: #000;
+    }
+  
+    /* 内容块间距 */
+    .content-block {
+      margin-bottom: 2.5rem;
+    }
+  
+    /* 只有简单的下划线高亮，没有颜色块 */
+    .highlight {
+      text-decoration: underline;
+      text-decoration-color: #aaa;
+      text-decoration-thickness: 2px;
+    }
+  
+    /* Insight 部分：左侧竖线强调，极简风格 */
+    .insight-block {
+      border-left: 4px solid #444; /* 深灰色竖线 */
+      padding-left: 1.5rem;
+      margin-left: 0.5rem;
+    }
+  
+    .insight-text {
+      font-size: 1rem; /* 稍微大一点的字号 */
+      font-style: italic; /* 斜体强调 */
+      color: #444;
+      margin-bottom: 0.8rem;
+    }
+    
+    .insight-text strong {
+      color: #000;
+      font-style: normal;
+    }
+  
+    /* 列表样式 */
+    .method-list {
+      list-style-type: none; /* 去掉默认圆点 */
+      padding-left: 0;
+    }
+  
+    .method-list li {
+      margin-bottom: 1rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+  
+    /* 自定义简单的圆点 */
+    .method-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #666;
+      font-weight: bold;
+    }
+  
+    .method-name {
+      font-weight: 700;
+      color: #000;
+    }
+  </style>
+
+<section class="section ">
+<!-- <div class="container is-max-desktop"> -->
+<div class="columns is-centered has-text-centered"> 
   <!-- column 容器是必须的，它控制内容的宽度和对齐 -->
   <div class="column is-four-fifths">
-
     <!-- 标题 -->
     <h2 class="title is-3">Method</h2>
 
@@ -223,20 +322,25 @@ Building on this idea, we propose <strong>HiF-VLA</strong> (<strong>Hindsight, I
       <figure class="image is-is-16by9">
         <img src="./static/images/hifvla.png" alt="Models." style="width:100%; height:auto;">
       </figure>
-
       <p>
-        Our core philosophy is to enhance the model's spatial awareness using an external guide. To provide our model with a rich understanding of 3D space, we leverage a powerful, pre-trained 3D foundation model VGGT. For any given set of multi-view images, this foundation model generates detailed, pixel-level spatial representations—effectively creating a 3D-aware feature map from 2D inputs. These representations are further enriched with positional embeddings to maintain critical structural information.
+        <strong>The HiF-VLA Framework.</strong> Our approach unifies perception, reasoning, and action through three key stages: 
+      (a) Hindsight Prior Acquisition, (b) Foresight Reasoning with Insight, and (c) Hindsight-Modulated Joint Expert.
       </p>
+      <li>
+        <strong>Prior Acquisition</strong> : Instead of stacking raw image frames, we encode historical context into structured, low-dimensional <strong>Motion Vectors (MVs)</strong>. This representation efficiently serves as the "Hindsight," preserving essential dynamics while discarding pixel-level redundancy.
+      </li>
       
-      <p>
-        The key to our method is aligning the VLA's own visual tokens with these high-quality 3D signals. To achieve this, we first process the VLA's internal visual features through a normalization layer and a small neural network (MLP) to ensure their format is compatible with the 3D representations. We then train the model to maximize the cosine similarity between its own processed visual tokens and the corresponding 3D spatial signals from the foundation model. This alignment process effectively forces the VLA to learn and internalize a much deeper understanding of 3D geometry, directly from 2D images.
-      </p>
+      <li>
+        <strong>Foresight Reasoning with Insight</strong>: Leveraging the reasoning capabilities of VLMs, the model interprets task instructions and the current observation ("Insight"). It anticipates plausible <strong>Foresight Motions</strong> and generates latent action tokens. 
+      </li>
+      <li>
+        <strong>Hindsight-Modulated Joint Expert</strong>: We introduce a <strong>Joint Expert</strong> where the <em>Hindsight</em> (past motion) acts as a constraint to modulate the <em>Foresight</em> and <em>Action</em> streams. This modulation ensures that generated actions are causally consistent and temporally coherent.
+      </li>
     </div>
 
   </div> <!-- 这是 is-four-fifths column 的结束标签 -->
 
 </div> 
-
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Experiments</h2>
@@ -245,13 +349,13 @@ Building on this idea, we propose <strong>HiF-VLA</strong> (<strong>Hindsight, I
 <h3 class="title is-4">Evaluation on LIBERO Benchmark</h3>
 <div class="content has-text-justified">
   <figure class="image is-is-16by9">
-      <img src="./static/images/LIBERO.png" alt="Comparisons with state-of-the-art methods on LIBERO benchmark.">
+      <img src="./static/images/LIBERO.png" style="width: 100%; height: auto; display: block; margin: auto;" alt="Comparisons with state-of-the-art methods on LIBERO benchmark.">
       <figcaption class="has-text-centered is-size-6" style="margin-top: 0.5em;">
         Comparisons with state-of-the-art methods on the LIBERO benchmark.
       </figcaption>
     </figure>
   <p>
-   Spatial Forcing gets the best performance across all four tasks. Specifically, strictly following the same setup of OpenVLA-OFT to use both primary and wrist camera images, our method outperforms them quite a lot.
+    HiF-VLA establishes a new state-of-the-art on the LIBERO benchmark, demonstrating significant gains especially in complex, long-horizon manipulation tasks.
   </p>
 </div>
 
@@ -264,18 +368,15 @@ Building on this idea, we propose <strong>HiF-VLA</strong> (<strong>Hindsight, I
       </figcaption>
     </figure>
   <p>
-    Spatial Forcing achieves the highest average success rate and yields substantial improvements over the base model &pi;0 across all tasks, which demonstrates its effectiveness in enhancing the spatial awareness.
+    On the Calvin benchmark, our method exhibits superior performance, outperforming existing approaches in average sequence length across both third-view and multi-view settings.
   </p>
 </div>
 
 <h3 class="title is-4">Evaluation on Real World</h3>
 <div class="content has-text-justified">
-  <figure class="image is-is-16by9">
-      <img src="./static/images/Real.png" alt="Real-world Experiments.">
-      <figcaption class="has-text-centered is-size-6" style="margin-top: 0.5em;">
-        Real-world Experiments with various visual and spatial conditions. The videos below are played at the original speed of robot actions.
-      </figcaption>
-    </figure>
+  <b>
+    We conduct experiments on three real-world long-horizon tasks, shown in the videos below at the original speed of robot actions.
+  </b>
 </div>
 
 <!-- demo videos -->
