@@ -51,8 +51,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Spatial Forcing: Implicit Spatial Representation
-             Alignment For Vision-Language-Action Model</h1>
+          <h1 class="title is-1 publication-title">HiF-VLA: <strong>H</strong>indsight, Insight and Foresight through Motion Representation for Vision-Language-Action Models</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://hifvla.github.io/">Minghui Lin</a><sup>1</sup>,</span>
@@ -166,10 +165,23 @@
 
 <section class="section ">
   <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Vision-Language-Action (VLA) models have recently enabled robotic manipulation by grounding visual and linguistic cues into actions. However, most VLAs assume the Markov property, relying only on the current observation and thus suffering from temporal myopia that degrades long-horizon coherence. In this work, we view motion as a more compact and informative representation of temporal context and world dynamics, capturing inter-state changes while filtering static pixel-level noise. 
+Building on this idea, we propose <strong>HiF-VLA</strong> (<strong>Hindsight, Insight, and Foresight</strong> for VLAs)</strong>, a unified framework that leverages motion for bidirectional temporal reasoning. HiF-VLA encodes past dynamics through hindsight priors, anticipates future motion via foresight reasoning, and integrates both through a hindsight-modulated joint expert to enable a "<strong>think-while-acting</strong>" paradigm for long-horizon manipulation. As a result, HiF-VLA surpasses strong baselines on LIBERO-Long and CALVIN ABC-D benchmarks, while incurring negligible additional inference latency. Furthermore, HiF-VLA achieves substantial improvements in real-world long-horizon manipulation tasks, demonstrating its broad effectiveness in practical robotic settings.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
 
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Key Features</h2>
+        <h2 class="title is-3">Introduction</h2>
 
         <div class="columns is-multiline is-centered">
           <figure class="image is-is-16by9">
@@ -195,20 +207,7 @@
       </div>
     </div>
 
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Vision-language-action (VLA) models have recently shown strong potential in enabling robots to follow language instructions and execute precise actions. However, most VLAs are built upon vision-language models pretrained solely on 2D data, which lack accurate spatial awareness and hinder their ability to operate in the 3D physical world. Existing solutions attempt to incorporate explicit 3D sensor inputs such as depth maps or point clouds, but these approaches face challenges due to sensor noise, hardware heterogeneity, and incomplete depth coverage in existing datasets. Alternative methods that estimate 3D cues from 2D images also suffer from the limited performance of depth estimators.
-We propose <strong>Spatial Forcing (SF)</strong>, a simple yet effective alignment strategy that implicitly forces VLA models to develop spatial comprehension capabilities without relying on explicit 3D inputs or depth estimators. SF aligns intermediate visual embeddings of VLAs with geometric representations produced by pretrained 3D foundation models. By enforcing alignment at intermediate layers, SF guides VLAs to encode richer spatial representations that enhance action precision.
-Extensive experiments in simulation and real-world environments demonstrate that SF achieves state-of-the-art results, surpassing both 2D- and 3D-based VLAs. SF further accelerates training by up to 3.8x and improves data efficiency across diverse robotic tasks.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Abstract. -->
+    
 
 
 <div class="columns is-centered has-text-centered">
@@ -294,7 +293,7 @@ Extensive experiments in simulation and real-world environments demonstrate that
       Your browser does not support the video tag.
     </video>
     <figcaption class="has-text-centered is-size-6" style="margin-top: 0.5em;">
-      Grasp Right-side vegetable.
+      Place blocks on the plates.
     </figcaption>
   </figure>
   <figure class="image" style="flex: 1; text-align: center; margin: 0;">
@@ -304,7 +303,7 @@ Extensive experiments in simulation and real-world environments demonstrate that
       Your browser does not support the video tag.
     </video>
     <figcaption class="has-text-centered is-size-6" style="margin-top: 0.5em;">
-      Lift Pot.
+      Cover block and stack bowls.
     </figcaption>
   </figure>
 </div>
@@ -323,7 +322,7 @@ Extensive experiments in simulation and real-world environments demonstrate that
       Your browser does not support the video tag.
     </video>
     <figcaption class="has-text-centered is-size-6" style="margin-top: 0.5em;">
-      Stack Transparent Glass Cups.
+      Press buttons in order.
     </figcaption>
   </figure>
   <!-- <figure class="image" style="flex: 1; text-align: center; margin: 0;">
